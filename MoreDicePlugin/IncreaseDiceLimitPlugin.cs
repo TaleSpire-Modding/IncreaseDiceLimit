@@ -1,17 +1,18 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
 using HarmonyLib;
+using ModdingTales;
 using UnityEngine;
 
 namespace IncreaseDiceLimit
 {
 
-    [BepInPlugin(Guid, "HolloFoxes' Increase Dice Limit Plugin", Version)]
+    [BepInPlugin(Guid, "Increase Dice Limit Plugin", Version)]
     public class IncreaseDiceLimitPlugin : BaseUnityPlugin
     {
         // constants
         public const string Guid = "org.hollofox.plugins.IncreaseLimit";
-        internal const string Version = "1.0.0.0";
+        internal const string Version = "1.1.0.0";
 
         // Config
         private static ConfigEntry<int> _diceLimit { get; set; }
@@ -30,7 +31,7 @@ namespace IncreaseDiceLimit
             Debug.Log("Increase Dice Limit loaded");
             _diceLimit = Config.Bind("Limits", "Dice", 400);
 
-            ModdingUtils.Initialize(this, Logger);
+            ModdingUtils.Initialize(this, Logger, "HolloFoxes'");
             var harmony = new Harmony(Guid);
             harmony.PatchAll();
         }
