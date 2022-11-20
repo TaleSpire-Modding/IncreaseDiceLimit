@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using BepInEx.Configuration;
 using HarmonyLib;
 using ModdingTales;
@@ -6,13 +6,12 @@ using UnityEngine;
 
 namespace IncreaseDiceLimit
 {
-
     [BepInPlugin(Guid, "Increase Dice Limit Plugin", Version)]
     public class IncreaseDiceLimitPlugin : BaseUnityPlugin
     {
         // constants
         public const string Guid = "org.hollofox.plugins.IncreaseLimit";
-        internal const string Version = "1.1.0.0";
+        internal const string Version = "1.2.0.0";
 
         // Config
         private static ConfigEntry<int> _diceLimit { get; set; }
