@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+using System;
+using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -20,33 +21,27 @@ namespace IncreaseDiceLimit.Patches
         {
             var count = typeof(UIAddDiceButton).GetField("_count", Flags)
                     .GetValue(__instance);
-            int number = (int) count.GetType().GetField("Count",Flags).GetValue(count);
+            var number = (int) count.GetType().GetField("Count",Flags).GetValue(count);
             if (Input.GetMouseButton(0))
             {
-                var currentTotalMethodInfo = typeof(UIAddDiceButton).GetMethod("CurrentTotal", Flags);
-                var total = (int) currentTotalMethodInfo.Invoke(null,null);
-                if (IncreaseDiceLimitPlugin.DiceLimit == -1 || total < IncreaseDiceLimitPlugin.DiceLimit)
-                {
-                    if (Input.GetKey(KeyCode.LeftControl))
-                        number += 100;
-                    else if (Input.GetKey(KeyCode.LeftAlt))
-                        number += 10;
-                    else
-                        ++number;
-                }
-                
+                if (Input.GetKey(KeyCode.LeftControl))
+                    number += 100;
+                else if (Input.GetKey(KeyCode.LeftAlt))
+                    number += 10;
+                else
+                    number++;
             }
             else if (Input.GetMouseButton(1))
             {
                 if (Input.GetKey(KeyCode.LeftControl))
-                    number = Mathf.Max(0, number - 100);
+                    number -= 100;
                 else if (Input.GetKey(KeyCode.LeftAlt))
-                    number = Mathf.Max(0, number - 10);
+                    number -= 10;
                 else
-                    number = Mathf.Max(0, number - 1);
-                
+                    number--;
             }
-            
+            number = Math.Clamp(number, 0, IncreaseDiceLimitPlugin.DiceLimit);
+
             var SetNumberMethodInfo = typeof(UIAddDiceButton).GetMethod("SetNumber", Flags);
             
             SetNumberMethodInfo.Invoke(__instance, new object[] {number});
