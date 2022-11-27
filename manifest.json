@@ -1,6 +1,6 @@
 {
     "name": "Increase_Dice_Limit",
-    "version_number": "1.2.0",
+    "version_number": "1.2.1",
     "website_url": "https://github.com/TaleSpire-Modding/IncreaseDiceLimit",
     "description": "Is 40 dice not enough? This mod allows for more dice in a group.",
     "dependencies": [
