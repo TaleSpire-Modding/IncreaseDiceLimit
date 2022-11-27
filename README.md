@@ -1,4 +1,6 @@
 # Increase Dice Limit
+[![Push to nuget feed on release](https://github.com/TaleSpire-Modding/IncreaseDiceLimit/actions/workflows/release.yml/badge.svg)](https://github.com/TaleSpire-Modding/IncreaseDiceLimit/actions/workflows/release.yml)
+
 Is 40 dice not enough? This mod allows for more dice in a group.
 
 ## Install
@@ -17,6 +19,7 @@ Build the project (We now use Nuget).
 Browse to the newly created ```bin/Debug``` or ```bin/Release``` folders and copy the ```.dll``` to ```Steam\steamapps\common\TaleSpire\BepInEx\plugins```
 
 ## Changelog
+- 1.2.1: Pipeline deploy and upgrade
 - 1.2.0: 4.8 Framework update and Nuget Release
 - 1.2.0: Fixed clamping of Dice limit
 - 1.1.0: Cyberpunk fix
