@@ -6,11 +6,11 @@ using IncreaseDiceLimit;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("More Fog Colors")]
+[assembly: AssemblyTitle("Increase Dice Limit")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HolloFox")]
-[assembly: AssemblyProduct("MFC")]
+[assembly: AssemblyProduct("IDL")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -19,6 +19,7 @@ Build the project (We now use Nuget).
 Browse to the newly created ```bin/Debug``` or ```bin/Release``` folders and copy the ```.dll``` to ```Steam\steamapps\common\TaleSpire\BepInEx\plugins```
 
 ## Changelog
+- 1.3.0: BR Dice fixes and improvements
 - 1.2.1: Pipeline deploy and upgrade
 - 1.2.0: 4.8 Framework update and Nuget Release
 - 1.2.0: Fixed clamping of Dice limit

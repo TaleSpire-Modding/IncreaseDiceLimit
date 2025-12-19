@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+using Dice;
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,7 +17,8 @@ namespace IncreaseDiceLimit.Patches
 
         static bool Prefix(
             BaseEventData data,
-            ref UIAddDiceButton __instance
+            ref UIAddDiceButton __instance,
+            ref DieKind ____kind
             )
         {
             var count = typeof(UIAddDiceButton).GetField("_count", Flags)
@@ -43,15 +45,11 @@ namespace IncreaseDiceLimit.Patches
             number = Math.Clamp(number, 0, IncreaseDiceLimitPlugin.DiceLimit);
 
             var SetNumberMethodInfo = typeof(UIAddDiceButton).GetMethod("SetNumber", Flags);
-            
             SetNumberMethodInfo.Invoke(__instance, new object[] {number});
             
             if (__instance.m_SendDiceData != null)
             {
-                var resourceName = 
-                        (string) typeof(UIAddDiceButton).GetField("_resourceName", Flags)
-                            .GetValue(__instance);
-                __instance.m_SendDiceData.Invoke(resourceName, number, -1);
+                __instance.m_SendDiceData.Invoke(____kind, number);
                 
             }
             data.Use();

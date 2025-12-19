@@ -62,6 +62,7 @@ jobs:
           Copy-Item -Path icon.png -Destination 'thunderstore'
           Copy-Item -Path LICENSE.txt -Destination 'thunderstore'
           Copy-Item -Path README.md -Destination 'thunderstore'
+          Copy-Item -Path manifest.json -Destination 'thunderstore'
           Copy-Item -Path MoreDicePlugin/bin/Release/net48/IncreaseDiceLimit.dll -Destination 'thunderstore'
       
       - uses: GreenTF/upload-thunderstore-package@v2.2
@@ -72,5 +73,5 @@ jobs:
           name: ${{steps.package.outputs.NAME}} # the name of the package
           version: ${{steps.package.outputs.VERSION_NUMBER}} # Use the version from manifest
           community: talespire
-          path: thunderstore
-          deps: ${{steps.package.outputs.DEPENDENCIES}}
+          path: ./thunderstore
+          file: ./thunderstore.zip
