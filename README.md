@@ -28,7 +28,9 @@ Browse to the newly created ```bin/Debug``` or ```bin/Release``` folders and cop
 - 1.0.0: Initial release
 
 ## Shoutouts
+<!-- CONTRIBUTORS-START -->
 Shoutout to my Patreons on https://www.patreon.com/HolloFox, recognising your
 mighty contribution to my caffeine addiction:
 - John Fuller
 - [Tales Tavern](https://talestavern.com/) - MadWizard
+<!-- CONTRIBUTORS-END -->
