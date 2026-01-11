@@ -19,6 +19,7 @@ Build the project (We now use NuGet).
 Browse to the newly created ```bin/Debug``` or ```bin/Release``` folders and copy the ```.dll``` to ```Steam\steamapps\common\TaleSpire\BepInEx\plugins```
 
 ## Changelog
+- 1.3.3: migrate to DependencyUnityPlugins<T> to allow enable/disable the plugin without uninstalling it via chainloader
 - 1.3.2: DependencyUnityPlugins is now used and implement logic for unpatching
 - 1.3.1: Test webhook (Also updated Readme)
 - 1.3.0: BR Dice fixes and improvements

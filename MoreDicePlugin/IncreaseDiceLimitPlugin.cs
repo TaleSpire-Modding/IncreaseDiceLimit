@@ -8,7 +8,7 @@ namespace IncreaseDiceLimit
 {
     [BepInPlugin(Guid, "Increase Dice Limit Plugin", Version)]
     [BepInDependency(SetInjectionFlag.Guid)]
-    public class IncreaseDiceLimitPlugin : DependencyUnityPlugin
+    public class IncreaseDiceLimitPlugin : DependencyUnityPlugin<IncreaseDiceLimitPlugin>
     {
         // constants
         public const string Guid = "org.hollofox.plugins.IncreaseLimit";
@@ -25,21 +25,25 @@ namespace IncreaseDiceLimit
 
         Harmony harmony;
 
+        protected override void OnSetupConfig(ConfigFile config)
+        {
+            _diceLimit = config.Bind("Limits", "Dice", 400);
+        }
+
         /// <summary>
         /// Awake plugin
         /// </summary>
         protected override void OnAwake()
         {
             Debug.Log("Increase Dice Limit loaded");
-            _diceLimit = Config.Bind("Limits", "Dice", 400);
-
+            
             harmony = new Harmony(Guid);
             harmony.PatchAll();
         }
 
         protected override void OnDestroyed()
         {
-            harmony.UnpatchSelf();
+            harmony?.UnpatchSelf();
         }
     }
 }
